@@ -1,8 +1,7 @@
-import { defineConfig } from "vite";
-import { viteSingleFile } from "vite-plugin-singlefile";
-import react from "@vitejs/plugin-react";
 import path from "path";
+import { defineConfig } from "vite";
 import generateFile from "vite-plugin-generate-file";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 const figmaManifest = {
   name: "Figma-Plugin-React-Vite",
@@ -31,6 +30,7 @@ export default defineConfig({
       fileName: "plugin",
       formats: ["es"],
     },
+    emptyOutDir: false,
     outDir: path.resolve(__dirname, "./dist"),
   },
   resolve: {

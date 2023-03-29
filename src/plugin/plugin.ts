@@ -5,14 +5,14 @@ async function bootstrap() {
 
   if (figma.editorType === "figma") {
     figma.showUI(__html__, {
-      width: 350,
-      height: 200,
+      width: 800,
+      height: 500,
       title: "My Figma Plugin!",
     });
   } else if (figma.editorType === "figjam") {
     figma.showUI(__html__, {
-      width: 350,
-      height: 200,
+      width: 800,
+      height: 500,
       title: "My FigJam Plugin!",
     });
   }
