@@ -7,6 +7,7 @@ import figmaLogo from "@ui/assets/figma.png";
 
 import { Button } from "@ui/components/Button";
 import "@ui/styles/main.scss";
+import { NetworkMessages } from "@common/network/messages";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,12 @@ function App() {
       <div className="card">
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
+        </Button>
+        <Button
+          onClick={() => NetworkMessages.PING.send({ count })}
+          style={{ marginInlineStart: 10 }}
+        >
+          ping the other side
         </Button>
         <p>
           Edit <code>src/app.tsx</code> and save to test HMR

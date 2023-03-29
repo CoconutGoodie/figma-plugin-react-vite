@@ -4,13 +4,13 @@ import path from "path";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
 import inlineSvg from "./scripts/vite/vite-inline-svg";
-import svgr from "./scripts/vite/vite-svgr-component";
+import svgComponent from "./scripts/vite/vite-svgr-component";
 
 import postcssUrl from "postcss-url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), inlineSvg(), viteSingleFile()],
+  plugins: [react(), svgComponent(), inlineSvg(), viteSingleFile()],
   server: {
     base: "/ui.html",
     port: 4000,
