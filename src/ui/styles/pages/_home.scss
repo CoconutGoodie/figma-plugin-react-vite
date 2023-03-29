@@ -7,10 +7,12 @@
 
 .homepage {
   .logo {
+    width: 6.5em;
     height: 6em;
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
+    object-fit: contain;
   }
   .logo.figma:hover {
     filter: drop-shadow(0 0 2em rgba($brand-figma, 0.667));
