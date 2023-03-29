@@ -36,6 +36,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@common": path.resolve(__dirname, "./src/common"),
+      "@plugin": path.resolve(__dirname, "./src/plugin"),
     },
   },
 });

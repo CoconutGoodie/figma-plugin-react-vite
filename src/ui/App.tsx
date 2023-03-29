@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { LogicalSide } from "@common/logical-side";
-import { ReactComponent as ReactLogo } from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg?inline";
-import figmaLogo from "./assets/figma.png";
+
+import { ReactComponent as ReactLogo } from "@ui/assets/react.svg";
+import viteLogo from "@ui/assets/vite.svg?inline";
+import figmaLogo from "@ui/assets/figma.png";
+
+import { Button } from "@ui/components/Button";
 import "./App.css";
 
 function App() {
@@ -23,9 +26,9 @@ function App() {
       </div>
       <h1>Figma + Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

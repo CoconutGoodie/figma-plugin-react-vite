@@ -17,11 +17,12 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "typeRoots": ["./node_modules/@types/", "./node_modules/@figma"],
     "rootDir": ".",
-    "baseUrl": ".",
     "outDir": "dist/",
     "sourceMap": false,
     "paths": {
-      "@common/*": ["./src/common/*"]
+      "@common/*": ["./src/common/*"],
+      "@ui/*": ["./src/ui/*"],
+      "@plugin/*": ["./src/plugin/*"]
     }
   },
   "include": [

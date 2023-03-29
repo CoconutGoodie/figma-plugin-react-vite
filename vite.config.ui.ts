@@ -9,7 +9,6 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), inlineSvg(), svgr(), viteSingleFile()],
   root: path.resolve(__dirname, "./src/ui/"),
-  // publicDir: path.join(__dirname, "./src/ui/public/"),
   build: {
     outDir: path.resolve(__dirname, "./dist"),
     rollupOptions: {
@@ -24,6 +23,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@common": path.resolve(__dirname, "./src/common"),
+      "@ui": path.resolve(__dirname, "./src/ui"),
     },
   },
 });

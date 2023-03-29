@@ -5,7 +5,7 @@
   "type": "module",
   "main": "",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite -c ./vite.config.ui.ts",
     "build": "tsc && vite build -c ./vite.config.ui.ts --emptyOutDir && echo. && vite build -c ./vite.config.plugin.ts",
     "preview": "vite preview"
   },
