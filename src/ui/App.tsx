@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { LogicalSide } from "@common/logical-side";
-import reactLogo from "./assets/react.svg?inline";
+import { ReactComponent as ReactLogo } from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg?inline";
 import figmaLogo from "./assets/figma.png";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-
-  console.log({ figmaLogo, viteLogo, reactLogo });
 
   return (
     <div className="App">
@@ -20,7 +18,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <ReactLogo className="logo react" title="React logo" />
         </a>
       </div>
       <h1>Figma + Vite + React</h1>
