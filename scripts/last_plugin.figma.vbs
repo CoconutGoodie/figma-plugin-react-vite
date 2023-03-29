@@ -1,5 +1,6 @@
 Set WshShell = WScript.CreateObject("WScript.Shell")
-WshShell.AppActivate "Figma"
-WshShell.SendKeys "^%p"
-WshShell.AppActivate "Visual Studio Code"
-Wscript.Echo "Sent keys to Figma"
+
+For i = 0 To 5
+  WshShell.AppActivate "- Figma"
+  WshShell.SendKeys "^%p"
+Next

@@ -6,8 +6,15 @@
   "main": "",
   "scripts": {
     "dev": "vite -c ./vite.config.ui.ts",
-    "build": "tsc && vite build -c ./vite.config.ui.ts --emptyOutDir && echo. && vite build -c ./vite.config.plugin.ts",
+    "build": "tsc && npm run build:ui && npm run build:plugin && cross-os refresh-figma",
+    "build:ui": "vite build -c ./vite.config.ui.ts --emptyOutDir",
+    "build:plugin": "vite build -c ./vite.config.plugin.ts",
     "preview": "vite preview"
+  },
+  "cross-os": {
+    "refresh-figma": {
+      "win32": "cscript ./scripts/last_plugin.figma.vbs"
+    }
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -21,6 +28,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "cross-os": "^1.5.0",
     "postcss": "^8.4.21",
     "postcss-url": "^10.1.3",
     "sass": "^1.60.0",
