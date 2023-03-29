@@ -1,8 +1,8 @@
 import { LogicalSide } from "@common/logical-side";
 import { NetworkMessage, TransportMessage } from "@common/network/message";
+import { CreateRectMessage } from "@common/network/messages/CreateRectMessage";
 import { PingMessage } from "@common/network/messages/PingMessage";
 import { PongMessage } from "@common/network/messages/PongMessage";
-import { Transports } from "@common/network/transports";
 
 export namespace NetworkMessages {
   const messages: Map<string, NetworkMessage<any>> = new Map();
@@ -31,4 +31,5 @@ export namespace NetworkMessages {
 
   export const PING = register(new PingMessage());
   export const PONG = register(new PongMessage());
+  export const CREATE_RECT = register(new CreateRectMessage());
 }
