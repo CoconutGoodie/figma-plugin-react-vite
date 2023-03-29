@@ -43,5 +43,8 @@
 
   .read-the-docs {
     color: #888;
+    & > span {
+      font-family: Alkatra;
+    }
   }
 }

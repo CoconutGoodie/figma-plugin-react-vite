@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LogicalSide } from "@common/logical-side";
 
-import { ReactComponent as ReactLogo } from "@ui/assets/react.svg";
+import ReactLogo from "@ui/assets/react.svg?component";
 import viteLogo from "@ui/assets/vite.svg?inline";
 import figmaLogo from "@ui/assets/figma.png";
 
@@ -38,7 +38,7 @@ function App() {
 
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more <br />
-        (Current logical side = {LogicalSide.current.getName()})
+        <span>(Current logical side = {LogicalSide.current.getName()})</span>
       </p>
     </div>
   );
