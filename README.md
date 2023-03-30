@@ -51,6 +51,7 @@
 ```
 npm i
 ```
+
 2. Create a figma plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > New Plugin...`. You can also type `"New Plugin...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>)
 3. Follow the steps on opened window. I recommend using `Default` or `Run once` layout, because you'll only need to save the manifest (for the plugin id it generates). Click "Save as", and save it to a temporary place. Then click "Open folder" to navigate to the folder it generated
 4. Note down the `id` field from the `manifest.json` it generated.
@@ -59,18 +60,23 @@ npm i
 ### Developing UI
 
 Since UI is powered by Vite + React, you can use your browser to code the UI with HMR but **without** the figma context. Just run the following command line:
+
 ```
 npm run dev
 ```
 
 ### Building
+
 Building by the following command line will yield with a `dist` folder, which is ready to be used by Figma:
+
 ```
 npm run build
 ```
+
 `dist/manifest.json` then can be used to load the plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > Import plugin from manifest...`. You can also type `"Import plugin from manifest...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>). Then select `dist/manifest.json`
 
 ### Publishing
+
 After building, built `dist` folder is going to contain every artifact you need in order to publish your plugin. Just build, and follow [Figma's Official Post on Publishing Plugins](https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community#Publish_your_plugin).
 
 ## File Structure
@@ -84,9 +90,27 @@ After building, built `dist` folder is going to contain every artifact you need 
   - `scripts/vite/` : Some custom vite plugins to assist inlining assets
 - `figma.manifest.ts` - A module that exports [Figma Plugin Manifest](https://www.figma.com/plugin-docs/manifest/) for the build scripts
 
-## Initial Boilerplate Explained
+## Caveats
 
-TODO
+### 1. Make sure to either inline or component SVG imports!
+
+Importing image assets other than `.svg` is easy. However, when you are importing you MUST make sure it is imported using either one of the suffices `?inline` or `?component`.
+
+```tsx
+// ❌ WRONG! Won't be visible in Figma
+import myImage from "@ui/assets/my_image.svg";
+
+// ✔️ Correct!
+import MyImage from "@ui/assets/my_image.svg?component";
+import myImage from "@ui/assets/my_image.svg?inline";
+
+...
+
+<MyImage className="something" />
+<img src={myImage} />
+```
+
+---
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/CoconutGoodie/figma-plugin-react-vite/master/.github/assets/preview.png" alt="Preview" />

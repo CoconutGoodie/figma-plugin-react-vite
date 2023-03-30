@@ -1,10 +1,10 @@
 import { LogicalSide } from "@common/logical-side";
-import { NetworkMessages } from "@common/network/messages";
+import { NetworkMessageRegistry } from "@common/network/registry";
 
 async function bootstrap() {
   LogicalSide.current = LogicalSide.PLUGIN;
 
-  figma.ui.onmessage = NetworkMessages.handleIncomingMessage;
+  figma.ui.onmessage = NetworkMessageRegistry.handleIncomingMessage;
 
   if (figma.editorType === "figma") {
     figma.showUI(__html__, {
