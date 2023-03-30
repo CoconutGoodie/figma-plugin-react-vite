@@ -54,7 +54,7 @@ npm i
 2. Create a figma plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > New Plugin...`. You can also type `"New Plugin...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>)
 3. Follow the steps on opened window. I recommend using `Default` or `Run once` layout, because you'll only need to save the manifest (for the plugin id it generates). Click "Save as", and save it to a temporary place. Then click "Open folder" to navigate to the folder it generated
 4. Note down the `id` field from the `manifest.json` it generated.
-5. Go to `figma.manifest.ts`, and replace the `id` with the id you noted down. Then configure the manifest there as you like.
+5. Go to `figma.manifest.ts`, and replace the `id` with the id you noted down. Then configure the manifest there as you like. (See [Official Figma Plugin Manifest doc](https://www.figma.com/plugin-docs/manifest/))
 
 ### Developing UI
 
@@ -75,7 +75,14 @@ After building, built `dist` folder is going to contain every artifact you need 
 
 ## File Structure
 
-TODO
+- `src`
+  - `src/common/` : Sources that are intended to be used both by plugin and ui logical sides.
+    - `src/common/network/` : Networking logic & message declarations used by Plugin - UI logical sides' intercommunication. Whenever a new message type is needed, declare and register here.
+  - `src/plugin/` : Sources of the plugin logical side. Place everything that interracts with figma here.
+  - `src/ui/` : Sources of the ui logical side, a classical Vite + React source base.
+- `scripts`
+  - `scripts/vite/` : Some custom vite plugins to assist inlining assets
+- `figma.manifest.ts` - A module that exports [Figma Plugin Manifest](https://www.figma.com/plugin-docs/manifest/) for the build scripts
 
 ## Initial Boilerplate Explained
 
