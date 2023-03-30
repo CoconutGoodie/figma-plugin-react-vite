@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "",
   "scripts": {
     "dev": "vite -c ./vite.config.ui.ts",
     "build": "tsc && npm run build:ui && npm run build:plugin && cross-os refresh-figma",

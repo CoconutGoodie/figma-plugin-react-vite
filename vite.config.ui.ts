@@ -11,10 +11,6 @@ import postcssUrl from "postcss-url";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgComponent(), inlineSvg(), viteSingleFile()],
-  server: {
-    base: "/ui.html",
-    port: 4000,
-  },
   root: path.resolve(__dirname, "./src/ui/"),
   build: {
     outDir: path.resolve(__dirname, "./dist"),

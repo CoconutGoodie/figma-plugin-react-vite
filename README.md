@@ -6,7 +6,7 @@
 
 <!-- Slogan -->
 <p align="center">
-   A figma plugin boilerplate, that helps you build UIs with React!
+   A figma plugin boilerplate, that makes it easy building plugins with React + Vite!
 </p>
 
 <!-- Badges -->
@@ -14,23 +14,17 @@
 
   <!-- Github Badges -->
   <img src="https://raw.githubusercontent.com/TheSpawnProject/TheSpawnLanguage/master/.github/assets/github-badge.png" height="20px"/>
-  <a href="https://github.com/TheSpawnProject/TheSpawnLanguage/commits/master">
-    <img src="https://img.shields.io/github/last-commit/TheSpawnProject/TheSpawnLanguage"/>
+  <a href="https://github.com/CoconutGoodie/figma-plugin-react-vite/commits/master">
+    <img src="https://img.shields.io/github/last-commit/CoconutGoodie/figma-plugin-react-vite"/>
   </a>
-  <a href="https://github.com/TheSpawnProject/TheSpawnLanguage/issues">
-    <img src="https://img.shields.io/github/issues/TheSpawnProject/TheSpawnLanguage"/>
-  </a>
-  <a href="https://github.com/TheSpawnProject/TheSpawnLanguage/tree/master/src">
-    <img src="https://img.shields.io/github/languages/code-size/TheSpawnProject/TheSpawnLanguage"/>
+  <a href="https://github.com/CoconutGoodie/figma-plugin-react-vite/issues">
+    <img src="https://img.shields.io/github/issues/CoconutGoodie/figma-plugin-react-vite"/>
   </a>
 
   <br/>
 
   <!-- Support Badges -->
   <img src="https://raw.githubusercontent.com/TheSpawnProject/TheSpawnLanguage/master/.github/assets/support-badge.png" height="20px"/>
-  <a href="https://discord.gg/KNxxdvN">
-    <img src="https://img.shields.io/discord/610497509437210624?label=discord"/>
-  </a>
   <a href="https://www.patreon.com/iGoodie">
     <img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DiGoodie%26type%3Dpatrons"/>
   </a>
@@ -50,7 +44,40 @@
 
 6. **_Sassy:_** A classic, this boilerplate supports Sass/Scss/Less and modules! Check out `/src/ui/styles/` for 7-1 Sass Template and `/src/ui/components/Button.module.scss` for module examples.
 
-## How to TODO?
+## How to start coding?
+
+1. First thing after you clone should be to install the dependencies by executing:
+
+```
+npm i
+```
+2. Create a figma plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > New Plugin...`. You can also type `"New Plugin...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>)
+3. Follow the steps on opened window. I recommend using `Default` or `Run once` layout, because you'll only need to save the manifest (for the plugin id it generates). Click "Save as", and save it to a temporary place. Then click "Open folder" to navigate to the folder it generated
+4. Note down the `id` field from the `manifest.json` it generated.
+5. Go to `figma.manifest.ts`, and replace the `id` with the id you noted down. Then configure the manifest there as you like.
+
+### Developing UI
+
+Since UI is powered by Vite + React, you can use your browser to code the UI with HMR but **without** the figma context. Just run the following command line:
+```
+npm run dev
+```
+
+### Building
+Building by the following command line will yield with a `dist` folder, which is ready to be used by Figma:
+```
+npm run build
+```
+`dist/manifest.json` then can be used to load the plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > Import plugin from manifest...`. You can also type `"Import plugin from manifest...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>). Then select `dist/manifest.json`
+
+### Publishing
+After building, built `dist` folder is going to contain every artifact you need in order to publish your plugin. Just build, and follow [Figma's Official Post on Publishing Plugins](https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community#Publish_your_plugin).
+
+## File Structure
+
+TODO
+
+## Initial Boilerplate Explained
 
 TODO
 

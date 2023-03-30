@@ -2,17 +2,7 @@ import path from "path";
 import { defineConfig } from "vite";
 import generateFile from "vite-plugin-generate-file";
 import { viteSingleFile } from "vite-plugin-singlefile";
-
-const figmaManifest = {
-  name: "Figma-Plugin-React-Vite",
-  id: "1222852692367737510",
-  api: "1.0.0",
-  main: "plugin.js",
-  ui: "index.html",
-  capabilities: [],
-  enableProposedApi: false,
-  editorType: ["figma", "figjam"],
-};
+import figmaManifest from "./figma.manifest";
 
 export default defineConfig({
   plugins: [
