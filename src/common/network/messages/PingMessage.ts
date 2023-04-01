@@ -1,24 +1,17 @@
-import { LogicalSide } from "@common/logical-side";
-import { NetworkMessage } from "@common/network/message";
-import { NetworkMessages } from "@common/network/messages";
+import * as Networker from "monorepo-networker";
+import { NetworkSide } from "@common/network/sides";
 
-interface Payload {
-  count: number;
-}
+interface Payload {}
 
-export class PingMessage extends NetworkMessage<Payload> {
-  constructor() {
-    super("ping");
+type Response = string;
+
+export class PingMessage extends Networker.MessageType<Payload, Response> {
+  receivingSide(): Networker.Side {
+    return NetworkSide.PLUGIN;
   }
 
-  public receivingSide(): LogicalSide {
-    return LogicalSide.PLUGIN;
-  }
-
-  public handle(payload: Payload, from: LogicalSide): void {
-    console.log(
-      `${from.getName()} pinged us, when the count was  ${payload.count}!`
-    );
-    NetworkMessages.PONG.send({ count: payload.count });
+  handle(payload: Payload, from: Networker.Side): string {
+    console.log(from.getName(), "has pinged us!");
+    return `Pong, ${from.getName()}!`;
   }
 }

@@ -1,10 +1,21 @@
 import { CreateRectMessage } from "@common/network/messages/CreateRectMessage";
+import { HelloMessage } from "@common/network/messages/HelloMessage";
 import { PingMessage } from "@common/network/messages/PingMessage";
-import { PongMessage } from "@common/network/messages/PongMessage";
-import { NetworkMessageRegistry as Registry } from "@common/network/registry";
+import { NetworkSide } from "@common/network/sides";
+import * as Networker from "monorepo-networker";
 
 export namespace NetworkMessages {
-  export const PING = Registry.register(new PingMessage());
-  export const PONG = Registry.register(new PongMessage());
-  export const CREATE_RECT = Registry.register(new CreateRectMessage());
+  export const registry = new Networker.MessageTypeRegistry();
+
+  export const PING = registry.register(new PingMessage("ping"));
+
+  export const HELLO_PLUGIN = registry.register(
+    new HelloMessage(NetworkSide.PLUGIN)
+  );
+
+  export const HELLO_UI = registry.register(new HelloMessage(NetworkSide.UI));
+
+  export const CREATE_RECT = registry.register(
+    new CreateRectMessage("create-rect")
+  );
 }

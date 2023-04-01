@@ -1,14 +1,13 @@
-import { LogicalSide } from "@common/logical-side";
+import { initializeNetwork } from "@common/network/init";
 import { NetworkMessages } from "@common/network/messages";
-import { NetworkMessageRegistry } from "@common/network/registry";
+import { NetworkSide } from "@common/network/sides";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app";
 
-LogicalSide.current = LogicalSide.UI;
+initializeNetwork(NetworkSide.UI);
 
-window.onmessage = (event) =>
-  NetworkMessageRegistry.handleIncomingMessage(event.data.pluginMessage);
+NetworkMessages.HELLO_PLUGIN.send({ text: "Hey there, Figma!" });
 
 const rootElement = document.getElementById("root") as HTMLElement;
 const root = ReactDOM.createRoot(rootElement);

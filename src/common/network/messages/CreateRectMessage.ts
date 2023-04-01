@@ -1,21 +1,17 @@
-import { LogicalSide } from "@common/logical-side";
-import { NetworkMessage } from "@common/network/message";
+import { NetworkSide } from "@common/network/sides";
+import * as Networker from "monorepo-networker";
 
 interface Payload {
   width: number;
   height: number;
 }
 
-export class CreateRectMessage extends NetworkMessage<Payload> {
-  constructor() {
-    super("create-rect");
+export class CreateRectMessage extends Networker.MessageType<Payload> {
+  public receivingSide(): Networker.Side {
+    return NetworkSide.PLUGIN;
   }
 
-  public receivingSide(): LogicalSide {
-    return LogicalSide.PLUGIN;
-  }
-
-  public handle(payload: Payload, from: LogicalSide): void {
+  public handle(payload: Payload, from: Networker.Side): void {
     if (figma.editorType === "figma") {
       const rect = figma.createRectangle();
       rect.x = 0;

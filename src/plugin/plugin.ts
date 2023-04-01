@@ -1,10 +1,10 @@
-import { LogicalSide } from "@common/logical-side";
-import { NetworkMessageRegistry } from "@common/network/registry";
+import * as Networker from "monorepo-networker";
+import { initializeNetwork } from "@common/network/init";
+import { NetworkSide } from "@common/network/sides";
+import { NetworkMessages } from "@common/network/messages";
 
 async function bootstrap() {
-  LogicalSide.current = LogicalSide.PLUGIN;
-
-  figma.ui.onmessage = NetworkMessageRegistry.handleIncomingMessage;
+  initializeNetwork(NetworkSide.PLUGIN);
 
   if (figma.editorType === "figma") {
     figma.showUI(__html__, {
@@ -20,7 +20,9 @@ async function bootstrap() {
     });
   }
 
-  console.log("Bootstrapped @", LogicalSide.current.getName());
+  console.log("Bootstrapped @", Networker.Side.current.getName());
+
+  NetworkMessages.HELLO_UI.send({ text: "Hey there, UI!" });
 }
 
 bootstrap();

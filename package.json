@@ -16,6 +16,7 @@
     }
   },
   "dependencies": {
+    "monorepo-networker": "^1.4.1-alpha",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

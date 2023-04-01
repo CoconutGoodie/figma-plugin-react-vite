@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LogicalSide } from "@common/logical-side";
+import * as Networker from "monorepo-networker";
 import { NetworkMessages } from "@common/network/messages";
 
 import ReactLogo from "@ui/assets/react.svg?component";
@@ -33,7 +33,10 @@ function App() {
           count is {count}
         </Button>
         <Button
-          onClick={() => NetworkMessages.PING.send({ count })}
+          onClick={async () => {
+            const response = await NetworkMessages.PING.request({});
+            console.log("Response:", response);
+          }}
           style={{ marginInlineStart: 10 }}
         >
           ping the other side
@@ -56,7 +59,7 @@ function App() {
 
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more <br />
-        <span>(Current logical side = {LogicalSide.current.getName()})</span>
+        <span>(Current logical side = {Networker.Side.current.getName()})</span>
       </p>
     </div>
   );
