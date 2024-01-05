@@ -1,26 +1,22 @@
 import { defineConfig } from "vite";
-import path from "path";
-
+import path from "node:path";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
-import inlineSvg from "./scripts/vite/vite-inline-svg";
-import svgComponent from "./scripts/vite/vite-svgr-component";
-
+import svgLoader from "vite-svg-loader";
 import postcssUrl from "postcss-url";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), svgComponent(), inlineSvg(), viteSingleFile()],
-  root: path.resolve(__dirname, "./src/ui/"),
+export default defineConfig(({ mode }) => ({
+  plugins: [react(), svgLoader({ defaultImport: 'url' }), viteSingleFile()],
+  root: path.resolve("src/ui"),
   build: {
-    outDir: path.resolve(__dirname, "./dist"),
+    minify: mode === 'production',
+    cssMinify: mode === 'production',
+    sourcemap: mode !== 'production' ? 'inline' : false,
+    emptyOutDir: false,
+    outDir: path.resolve("dist"),
     rollupOptions: {
-      input: {
-        ui: path.relative(__dirname, "./src/ui/index.html"),
-      },
-      output: {
-        entryFileNames: "[name].js",
-      },
+      input: path.resolve("src/ui/index.html"),
     },
   },
   css: {
@@ -30,8 +26,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@common": path.resolve(__dirname, "./src/common"),
-      "@ui": path.resolve(__dirname, "./src/ui"),
+      "@common": path.resolve("src/common"),
+      "@ui": path.resolve("src/ui"),
     },
   },
-});
+}));

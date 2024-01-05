@@ -3,7 +3,7 @@ import * as Networker from "monorepo-networker";
 import { NetworkMessages } from "@common/network/messages";
 
 import ReactLogo from "@ui/assets/react.svg?component";
-import viteLogo from "@ui/assets/vite.svg?inline";
+import viteLogo from "@ui/assets/vite.svg?url";
 import figmaLogo from "@ui/assets/figma.png";
 
 import { Button } from "@ui/components/Button";

@@ -62,7 +62,7 @@ npm i
 Since UI is powered by Vite + React, you can use your browser to code the UI with HMR but **without** the figma context. Just run the following command line:
 
 ```
-npm run dev
+npm start
 ```
 
 ### Building
