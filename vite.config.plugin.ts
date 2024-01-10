@@ -14,6 +14,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    target: "es2017",
     lib: {
       name: figmaManifest.name,
       entry: path.resolve(__dirname, "./src/plugin/plugin.ts"),
