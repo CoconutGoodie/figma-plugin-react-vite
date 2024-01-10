@@ -1,10 +1,10 @@
-import path from "path";
+import path from "node:path";
 import { defineConfig } from "vite";
 import generateFile from "vite-plugin-generate-file";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import figmaManifest from "./figma.manifest";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     viteSingleFile(),
     generateFile({
@@ -14,20 +14,22 @@ export default defineConfig({
     }),
   ],
   build: {
-    target: "es2017",
-    lib: {
-      name: figmaManifest.name,
-      entry: path.resolve(__dirname, "./src/plugin/plugin.ts"),
-      fileName: "plugin",
-      formats: ["es"],
-    },
+    minify: mode === 'production',
+    sourcemap: mode !== 'production' ? 'inline' : false,
+    target: 'es2017',
     emptyOutDir: false,
-    outDir: path.resolve(__dirname, "./dist"),
+    outDir: path.resolve("dist"),
+    rollupOptions: {
+      input: path.resolve('src/plugin/plugin.ts'),
+      output: {
+        entryFileNames: 'plugin.js',
+      },
+    },
   },
   resolve: {
     alias: {
-      "@common": path.resolve(__dirname, "./src/common"),
-      "@plugin": path.resolve(__dirname, "./src/plugin"),
+      "@common": path.resolve("src/common"),
+      "@plugin": path.resolve("src/plugin"),
     },
   },
-});
+}));
