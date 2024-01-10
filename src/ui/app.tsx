@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as Networker from "monorepo-networker";
 import { NetworkMessages } from "@common/network/messages";
 
-import ReactLogo from "@ui/assets/react.svg?component";
+import ReactLogo from "@ui/assets/react.svg?react";
 import viteLogo from "@ui/assets/vite.svg";
 import figmaLogo from "@ui/assets/figma.png";
 

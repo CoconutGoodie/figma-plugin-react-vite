@@ -40,7 +40,7 @@
 
 4. **_Bundled into One File:_** Figma plugins only accept a single file for `main` (js) and `ui` (html), which makes deployment of multiple files linked to each other impossible. This boilerplate is configured to bundle/inline most of the things you need like rasterize/vector image asset imports, CSS URL statements, and of course, source code imports.
 
-5. **_SVG as Component:_** Yes, you can import SVGs as inlined sources with `*.svg?inline`, but what about actually importing them as React components? Easy! You can import an SVG file as a React component with `*.svg?component!` (See `/src/ui/app.tsx` for examples)
+5. **_SVG as Component:_** Yes, you can import SVGs as inlined sources with `*.svg?inline`, but what about actually importing them as React components? Easy! You can import an SVG file as a React component with `*.svg?react` (See `/src/ui/app.tsx` for examples)
 
 6. **_Sassy:_** A classic, this boilerplate supports Sass/Scss/Less and modules! Check out `/src/ui/styles/` for 7-1 Sass Template and `/src/ui/components/Button.module.scss` for module examples.
 
@@ -94,16 +94,11 @@ After building, built `dist` folder is going to contain every artifact you need 
 
 ### 1. Make sure to either inline or component SVG imports!
 
-Importing image assets other than `.svg` is easy. However, when you are importing `.svg` you MUST make sure it is imported using either one of the suffixes `?inline` or `?component`.
+Importing image assets other than `.svg` is easy. However, when you are importing `.svg`, by default it will load as a base64 data-uri, to import as a React component, you must add the query string `?react`.
 
 ```tsx
-// ❌ WRONG! Won't be visible in Figma
-import myImage from "@ui/assets/my_image.svg";
-
-// ✔️ Correct!
-import MyImage from "@ui/assets/my_image.svg?component";
-import myImage from "@ui/assets/my_image.svg?inline";
-
+import MyImage from "@ui/assets/my_image.svg?react"; // Import as React component
+import myImage from "@ui/assets/my_image.svg"; // Import as base64 data-uri
 ...
 
 <MyImage className="something" />

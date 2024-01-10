@@ -2,12 +2,12 @@ import { defineConfig } from "vite";
 import path from "node:path";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
-import svgLoader from "vite-svg-loader";
+import svgr from "vite-plugin-svgr";
 import postcssUrl from "postcss-url";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), svgLoader({ defaultImport: 'url' }), viteSingleFile()],
+  plugins: [react(), svgr(), viteSingleFile()],
   root: path.resolve("src/ui"),
   build: {
     minify: mode === 'production',
