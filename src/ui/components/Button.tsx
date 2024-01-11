@@ -1,8 +1,8 @@
-import React from "react";
 import { classes } from "@ui/utils/classes.util";
+import { ComponentProps } from "react";
 import styles from "./Button.module.scss";
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type Props = ComponentProps<"button">;
 
 export const Button = (props: Props) => {
   return (
