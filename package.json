@@ -4,24 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "run-s watch",
+    "start": "run-s dev",
+    "dev": "run-s watch",
+    "dev:ui-only": "vite -c ./vite.config.ui.ts",
     "watch": "run-p watch:*",
     "watch:ui": "npm run build:ui -- --watch --mode=development",
     "watch:plugin": "npm run build:plugin -- --watch --mode=development",
     "clean": "rimraf dist/*",
-    "prebuild": "run-s types clean",
     "types": "run-s types:*",
     "types:src": "tsc",
     "types:node": "tsc -P tsconfig.node.json",
     "build": "run-s build:*",
-    "postbuild": "cross-os refresh-figma",
+    "prebuild": "run-s types clean",
     "build:ui": "vite build -c ./vite.config.ui.ts",
     "build:plugin": "vite build -c ./vite.config.plugin.ts"
-  },
-  "cross-os": {
-    "refresh-figma": {
-      "win32": "cscript ./scripts/last_plugin.figma.vbs"
-    }
   },
   "dependencies": {
     "monorepo-networker": "^1.5.2",
@@ -30,13 +26,11 @@
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.83.0",
-    "@rollup/pluginutils": "^5.1.0",
     "@types/node": "^18.15.11",
     "@types/postcss-url": "^10.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.2.1",
-    "cross-os": "^1.5.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-url": "^10.1.3",
@@ -45,7 +39,7 @@
     "typescript": "^5.3.0",
     "vite": "^5.0.11",
     "vite-plugin-generate-file": "^0.1.1",
-    "vite-plugin-singlefile": "^0.13.5",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-react-rich-svg": "^1.0.0",
+    "vite-plugin-singlefile": "^0.13.5"
   }
 }
