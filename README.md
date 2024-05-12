@@ -128,3 +128,11 @@ import myImageRaw from "@ui/assets/my_image.svg?raw"; // "<svg>...</svg>"
 <p align="center">
   <img src="https://raw.githubusercontent.com/CoconutGoodie/figma-plugin-react-vite/master/.github/assets/preview.png" alt="Preview" />
 </p>
+
+## License of the Template
+
+&copy; 2024 Taha Anılcan Metinyurt (iGoodie)
+
+For any part of this work for which the license is applicable, this work is licensed under the [Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) license. (See LICENSE).
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
