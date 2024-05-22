@@ -30,7 +30,7 @@
   </a>
 </p>
 
-# Key Features
+# 🗝 Key Features
 
 1. **_Logical Sides in Mind:_** Figma plugins that render a UI work on two different processes (split into code.js and index.html in Figma docs). This boilerplate keeps the sides separated by allowing them to share code (under ./src/common/).
 
@@ -44,7 +44,7 @@
 
 6. **_Sassy:_** A classic, this boilerplate supports Sass/Scss/Less and modules! Check out `/src/ui/styles/` for 7-1 Sass Template and `/src/ui/components/Button.module.scss` for module examples.
 
-# How to start coding?
+# 💻 How to start coding?
 
 1. First thing after you clone should be to install the dependencies by executing:
 
@@ -106,7 +106,7 @@ After building, built `dist` folder is going to contain every artifact you need 
   - `scripts/macos/` : Potential custom Mac OS scripts
 - `figma.manifest.ts` - A module that exports [Figma Plugin Manifest](https://www.figma.com/plugin-docs/manifest/) for the build scripts
 
-# Caveats
+# 🛑 Caveats
 
 ### 1. Make sure to import SVGS as either component, url or raw!
 
@@ -129,7 +129,7 @@ import myImageRaw from "@ui/assets/my_image.svg?raw"; // "<svg>...</svg>"
   <img src="https://raw.githubusercontent.com/CoconutGoodie/figma-plugin-react-vite/master/.github/assets/preview.png" alt="Preview" />
 </p>
 
-## License of the Template
+# 📜 License of the Template
 
 &copy; 2024 Taha Anılcan Metinyurt (iGoodie)
 
