@@ -57,7 +57,7 @@ npm install
 4. Note down the `id` field from the `manifest.json` it generated.
 5. Go to `figma.manifest.ts`, and replace the `id` with the id you noted down. Then configure the manifest there as you like. (See [Official Figma Plugin Manifest doc](https://www.figma.com/plugin-docs/manifest/))
 
-## Developing
+## 🖱 Developing
 
 Development is very straight forward. Just run the dev command, and it will start compiling your files as you code.
 
@@ -69,7 +69,7 @@ Once dev is ran, `dist/` folder will be created, which includes your `manifest.j
 
 **Tip:** You can turn on the `Hot reload plugin` option in Figma, to automatically reload when files in `dist/` changes.
 
-### Developing without Figma Context
+### 🦴 Developing without Figma Context
 
 If you like developing your UI first, then integrating with Figma context; you can run your UI code in browser just like your every other Vite project by running:
 
@@ -79,7 +79,7 @@ npm run dev:ui-only
 
 Remember: since Figma context is not available in "ui-only" mode, any attempt to Figma API/SDK calls will look like a crash on your inspector/console.
 
-## Building
+## 🔨 Building
 
 Building with the following command line will yield with a `dist` folder, which is ready to be used by Figma:
 
@@ -87,13 +87,13 @@ Building with the following command line will yield with a `dist` folder, which 
 npm run build
 ```
 
-`dist/manifest.json` then can be used to load the plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > Import plugin from manifest...`. You can also type `"Import plugin from manifest...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>). Then select `dist/manifest.json`
+Then, `dist/manifest.json` can be used to load the plugin. In Figma, right click while you're in a design file. Follow `Plugins > Development > Import plugin from manifest...`. You can also type `"Import plugin from manifest...` to the global search (Windows: <kbd>CTRL</kbd> + <kbd>P</kbd>, Mac: <kbd>⌘ Command</kbd> + <kbd>P</kbd>). Then select `dist/manifest.json`
 
-## Publishing
+## 📦 Publishing
 
 After building, built `dist` folder is going to contain every artifact you need in order to publish your plugin. Just build, and follow [Figma's Official Post on Publishing Plugins](https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community#Publish_your_plugin).
 
-## File Structure
+## 🕸 File Structure
 
 - `src`
   - `src/common/` : Sources that are intended to be used both by plugin and ui logical sides.
