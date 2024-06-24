@@ -67,7 +67,8 @@ npm run dev
 
 Once dev is ran, `dist/` folder will be created, which includes your `manifest.json`. You can load it in Figma, by `Right Click > Plugins > Development > Import plugin from manifest...`
 
-**Tip:** You can turn on the `Hot reload plugin` option in Figma, to automatically reload when files in `dist/` changes.
+> [!TIP]
+> You can turn on the `Hot reload plugin` option in Figma, to automatically reload when files in `dist/` changes.
 
 ### 🦴 Developing without Figma Context
 
@@ -77,7 +78,8 @@ If you like developing your UI first, then integrating with Figma context; you c
 npm run dev:ui-only
 ```
 
-Remember: since Figma context is not available in "ui-only" mode, any attempt to Figma API/SDK calls will look like a crash on your inspector/console.
+> [!INFO]
+> Since Figma context is not available in "ui-only" mode, any attempt to Figma API/SDK calls will look like a crash on your inspector/console.
 
 ## 🔨 Building
 
