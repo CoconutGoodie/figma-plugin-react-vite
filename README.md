@@ -78,7 +78,7 @@ If you like developing your UI first, then integrating with Figma context; you c
 npm run dev:ui-only
 ```
 
-> [!INFO]
+> [!NOTE]
 > Since Figma context is not available in "ui-only" mode, any attempt to Figma API/SDK calls will look like a crash on your inspector/console.
 
 ## 🔨 Building
