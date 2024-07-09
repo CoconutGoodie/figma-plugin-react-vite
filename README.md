@@ -112,7 +112,7 @@ After building, built `dist` folder is going to contain every artifact you need 
 
 ### 1. Make sure to import SVGS as either component, url or raw!
 
-Importing image assets other than `.svg` is easy. However, when you are importing `.svg`, by default it will load as a base64 data-uri, to import as a React component, you must add the query string `?react`.
+Importing image assets other than `.svg` is easy. However, when you are importing `.svg`, by default it will load as a base64 data-uri, to import as a React component, you must add the query string `?component`.
 
 ```tsx
 import MyImage from "@ui/assets/my_image.svg?component"; // <MyImage />
