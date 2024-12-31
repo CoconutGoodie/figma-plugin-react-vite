@@ -8,4 +8,8 @@ export default {
   capabilities: [],
   enableProposedApi: false,
   editorType: ["figma", "figjam"],
+  networkAccess: {
+    "allowedDomains": [ "https://fonts.googleapis.com", "https://fonts.gstatic.com" ] 
+  },
+  documentAccess: "dynamic-page",
 };
