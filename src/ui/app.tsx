@@ -1,16 +1,24 @@
-import { useState } from "react";
-import * as Networker from "monorepo-networker";
-import { NetworkMessages } from "@common/network/messages";
+import { PLUGIN } from "@common/networkSides";
+import { UI_CHANNEL } from "@ui/app.network";
+import { Button } from "@ui/components/Button";
+import { Networker } from "monorepo-networker";
+import { useEffect, useState } from "react";
 
+import figmaLogo from "@ui/assets/figma.png";
 import ReactLogo from "@ui/assets/react.svg?component";
 import viteLogo from "@ui/assets/vite.svg?url";
-import figmaLogo from "@ui/assets/figma.png";
 
-import { Button } from "@ui/components/Button";
 import "@ui/styles/main.scss";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [pingCount, setPingCount] = useState(0);
+
+  useEffect(() => {
+    UI_CHANNEL.subscribe("ping", () => {
+      setPingCount((cnt) => cnt + 1);
+    });
+  }, []);
 
   return (
     <div className="homepage">
@@ -34,7 +42,7 @@ function App() {
         </Button>
         <Button
           onClick={async () => {
-            const response = await NetworkMessages.PING.request({});
+            const response = await UI_CHANNEL.request(PLUGIN, "ping", []);
             console.log("Response:", response);
           }}
           style={{ marginInlineStart: 10 }}
@@ -42,12 +50,10 @@ function App() {
           ping the other side
         </Button>
         <Button
-          onClick={() =>
-            NetworkMessages.CREATE_RECT.send({
-              width: 100,
-              height: 100,
-            })
-          }
+          onClick={() => {
+            console.log("Click");
+            UI_CHANNEL.emit(PLUGIN, "createRect", [100, 100]);
+          }}
           style={{ marginInlineStart: 10 }}
         >
           create square
@@ -57,9 +63,13 @@ function App() {
         </p>
       </div>
 
+      <p className="read-the-docs" style={{ fontSize: 11 }}>
+        {PLUGIN.name} pinged us {pingCount} time(s).
+      </p>
+
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more <br />
-        <span>(Current logical side = {Networker.Side.current.getName()})</span>
+        <span>(Current logical side = {Networker.getCurrentSide().name})</span>
       </p>
     </div>
   );

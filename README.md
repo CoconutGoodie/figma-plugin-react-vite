@@ -34,7 +34,7 @@
 
 1. **_Logical Sides in Mind:_** Figma plugins that render a UI work on two different processes (split into code.js and index.html in Figma docs). This boilerplate keeps the sides separated by allowing them to share code (under ./src/common/).
 
-2. **_Intercommunitive:_** Logical sides should be able to communicate with each other without creating huge and unscalable nested if statements. This boilerplate solves it by declaring isolated messages and handlers (under `./src/common/network/messages/`)! (Using the [Monorepo Networker](https://github.com/CoconutGoodie/monorepo-networker) library)
+2. **_Intercommunitive:_** Logical sides should be able to communicate with each other without creating huge and unscalable nested if statements. This boilerplate solves it by declaring isolated events and handlers (under `./src/common/networkSides.ts`)! (Using the [Monorepo Networker](https://github.com/CoconutGoodie/monorepo-networker) library)
 
 3. **_Easy to Build:_** Configure the `figma.manifest.ts` config with your plugin credentials once, then just build with your everyday `npm run build` command! The `/dist` folder will be ready to publish already!
 
@@ -99,7 +99,7 @@ After building, built `dist` folder is going to contain every artifact you need 
 
 - `src`
   - `src/common/` : Sources that are intended to be used both by plugin and ui logical sides.
-    - `src/common/network/` : Networking logic & message declarations used by Plugin - UI logical sides' intercommunication. Whenever a new message type is needed, declare and register here.
+    - `src/common/networkSides.ts` : Definitions of logical sides and the events each one accepts. Whenever a new event type is needed, declare and update here.
   - `src/plugin/` : Sources of the plugin logical side. Place everything that interracts with figma here.
   - `src/ui/` : Sources of the ui logical side, a classical Vite + React source base.
 - `scripts`
