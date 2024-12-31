@@ -1,10 +1,9 @@
-import * as Networker from "monorepo-networker";
-import { initializeNetwork } from "@common/network/init";
-import { NetworkSide } from "@common/network/sides";
-import { NetworkMessages } from "@common/network/messages";
+import { PLUGIN, UI } from "@common/networkSides";
+import { PLUGIN_CHANNEL } from "@plugin/plugin.network";
+import { Networker } from "monorepo-networker";
 
 async function bootstrap() {
-  initializeNetwork(NetworkSide.PLUGIN);
+  Networker.initialize(PLUGIN, PLUGIN_CHANNEL);
 
   if (figma.editorType === "figma") {
     figma.showUI(__html__, {
@@ -20,9 +19,11 @@ async function bootstrap() {
     });
   }
 
-  console.log("Bootstrapped @", Networker.Side.current.getName());
+  console.log("Bootstrapped @", Networker.getCurrentSide().name);
 
-  NetworkMessages.HELLO_UI.send({ text: "Hey there, UI!" });
+  PLUGIN_CHANNEL.emit(UI, "hello", ["Hey there, UI!"]);
+
+  setInterval(() => PLUGIN_CHANNEL.emit(UI, "ping", []), 5000);
 }
 
 bootstrap();
