@@ -1,7 +1,7 @@
 {
   "name": "figma-plugin-react-vite",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "start": "run-s dev",
@@ -20,7 +20,7 @@
     "build:plugin": "vite build -c ./vite.config.plugin.ts"
   },
   "dependencies": {
-    "monorepo-networker": "^2.0.0",
+    "monorepo-networker": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

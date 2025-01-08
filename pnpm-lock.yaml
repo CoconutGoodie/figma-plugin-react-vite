@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       monorepo-networker:
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.1.0
+        version: 2.1.0
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1214,8 +1214,8 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  monorepo-networker@2.0.0:
-    resolution: {integrity: sha512-Dhu3MxshyLn5Hk8tVFIYu1Bs5rA/OH1mxb1NIm+XwOPrAx605wyO5NuMKSfsDe7D+s9Man7uenoIr3ZuDMQhwQ==}
+  monorepo-networker@2.1.0:
+    resolution: {integrity: sha512-w4N18K0UNqIJgA9p9WIZximyBfHfzZAngCwOIScQWuxhu3d545snmx7mG6vsn81rYTW63C87cK1sNEH26lo34A==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -2808,7 +2808,7 @@ snapshots:
 
   minipass@7.1.2: {}
 
-  monorepo-networker@2.0.0: {}
+  monorepo-networker@2.1.0: {}
 
   ms@2.1.3: {}
 

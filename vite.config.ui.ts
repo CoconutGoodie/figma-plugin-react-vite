@@ -23,6 +23,11 @@ export default defineConfig(({ mode }) => ({
     postcss: {
       plugins: [postcssUrl({ url: "inline" })],
     },
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      },
+    },
   },
   resolve: {
     alias: {
