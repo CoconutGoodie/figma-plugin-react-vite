@@ -20,6 +20,7 @@ export const UI_CHANNEL = UI.channelBuilder()
 UI_CHANNEL.registerMessageHandler("ping", () => {
   return "pong";
 });
+
 UI_CHANNEL.registerMessageHandler("hello", (text) => {
   console.log("Plugin side said", text);
 });

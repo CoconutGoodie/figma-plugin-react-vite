@@ -47,7 +47,6 @@ PLUGIN_CHANNEL.registerMessageHandler("createRect", (width, height) => {
 PLUGIN_CHANNEL.registerMessageHandler("exportSelection", async () => {
   const selectedNodes = figma.currentPage.selection;
   if (selectedNodes.length === 0) {
-    console.log("Erroring")
     throw new Error("No selection is present.");
   }
 
